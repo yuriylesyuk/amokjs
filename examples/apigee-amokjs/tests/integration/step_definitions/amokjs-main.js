@@ -2,16 +2,15 @@
 'use strict';
 
 const apickli = require('apickli');
-const {defineSupportCode} = require('cucumber');
+const {Before} = require('cucumber');
 
-defineSupportCode(function({Before}) {
-    Before(function() {
-        this.apickli = new apickli.Apickli('http', 'your-apigee-api-domain.com/v1/amokjs');
-        this.apickli.addRequestHeader('Cache-Control', 'no-cache');
-    });
+
+Before(function() {
+    this.apickli = new apickli.Apickli('http', 'dbcedge-eval-test.apigee.net/v1/amokjs');
+    this.apickli.addRequestHeader('Cache-Control', 'no-cache');
 });
 
-//// example of adding custom step definitions
+    //// example of adding custom step definitions
 // defineSupportCode( ({Given, When, Then}) => {
 //     Given( () => {
 //         // add custom step dafinitions for Given
